@@ -3,12 +3,21 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter} from 'react-router-dom';
+import axios from 'axios';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+const access_token =localStorage.getItem('access_token')
+axios.defaults.headers.common.Authorization=`Bearer ${access_token}`;
+
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
+    <BrowserRouter>
     <App />
-  </React.StrictMode>
+    </BrowserRouter>
+
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
